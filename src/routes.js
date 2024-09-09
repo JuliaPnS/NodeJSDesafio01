@@ -30,6 +30,7 @@ export const routes = [
                 id: randomUUID(),
                 title,
                 description,
+                created_at: new Date()
             }
 
             database.insert('tasks', task)
@@ -47,10 +48,13 @@ export const routes = [
             
             database.update('tasks', id, {
                 title,
-                description
+                description,
+                updated_at: new Date()
             })
 
             return res.writeHead(204).end()
         }
     },
+
+
 ]
