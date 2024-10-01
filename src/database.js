@@ -61,11 +61,11 @@ export class Database {
         }
     }
 
-    patch(table, id, status) {
+    patch(table, id, data) {
         const rowIndex = this.#database[table].findIndex(row => row.id === id)
 
         if(rowIndex > -1) {
-            this.#database[table][rowIndex] = { id, status }
+            this.#database[table][rowIndex] = { id, ...data }
             this.#persist()
         }
     }
